@@ -1,0 +1,32 @@
+## Product service route
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      mvc:
+        routes[0]:
+          id: Ms-User
+          uri: lb://Ms-User
+          predicates[0]: Path=/api/ms-user/**
+        routes[1]:
+          id: Ms-Email
+          uri: lb://Ms-Mail
+          predicates[0]: Path=/api/ms-mail/**
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+          route:
+            RouteDefinitionLocator: INFO

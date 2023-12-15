@@ -1,0 +1,10 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: ms-discovery-server
+eureka:
+  client:
+    #Because it is a discovery-server, there is no need for other services to detect it
+    register-with-eureka: false
+    fetch-registry: false
